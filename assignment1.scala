@@ -1,7 +1,7 @@
 import scala.annotation.tailrec
 
 
-object Assigment1 {
+object Assignment1 {
   def main(args: Array[String]) {
 
     val days = List("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sunday", "Saturday")
