@@ -1,0 +1,18 @@
+MongoDB shell version v4.2.1
+connecting to: mongodb://127.0.0.1:27017/nbd?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("41390502-365e-48a2-afc0-321d95ac8844") }
+MongoDB server version: 4.2.1
+{ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 }
+MongoDB shell version v4.2.1
+connecting to: mongodb://127.0.0.1:27017/nbd?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("26c5bc95-113b-4984-8fde-4f56792662a9") }
+MongoDB server version: 4.2.1
+2019-11-29T22:52:43.681+0100 E  QUERY    [js] uncaught exception: TypeError: db.ollection.updateAll is not a function :
+@query_9.js:1:11
+2019-11-29T22:52:43.681+0100 F  -        [main] failed to load: query_9.js
+2019-11-29T22:52:43.681+0100 E  -        [main] exiting with code -3
+MongoDB shell version v4.2.1
+connecting to: mongodb://127.0.0.1:27017/nbd?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("defc201d-a23a-4e8b-afc8-ab8dc99c498b") }
+MongoDB server version: 4.2.1
+{ "acknowledged" : true, "matchedCount" : 39, "modifiedCount" : 38 }

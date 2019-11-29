@@ -1,0 +1,1 @@
+printjson(db.ollection.find({ "nationality": "Germany", "sex": "Male" }).toArray())
