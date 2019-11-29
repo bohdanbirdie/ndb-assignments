@@ -1,0 +1,19 @@
+MongoDB shell version v4.2.1
+connecting to: mongodb://127.0.0.1:27017/nbd?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("e00c7a0c-13ed-47f5-b71f-6acd6ddaeb30") }
+MongoDB server version: 4.2.1
+2019-11-30T00:00:46.530+0100 E  QUERY    [js] uncaught exception: Error: command failed: {
+	"ok" : 0,
+	"errmsg" : "$divide only supports numeric types, not string and double",
+	"code" : 16609,
+	"codeName" : "Location16609"
+} : aggregate failed :
+_getErrorWithCode@src/mongo/shell/utils.js:25:13
+doassert@src/mongo/shell/assert.js:18:14
+_assertCommandWorked@src/mongo/shell/assert.js:583:17
+assert.commandWorked@src/mongo/shell/assert.js:673:16
+DB.prototype._runAggregate@src/mongo/shell/db.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1012:12
+@query_ag_1_4.js:2:3
+2019-11-30T00:00:46.530+0100 F  -        [main] failed to load: query_ag_1_4.js
+2019-11-30T00:00:46.530+0100 E  -        [main] exiting with code -3

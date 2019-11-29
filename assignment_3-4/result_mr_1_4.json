@@ -1,0 +1,15 @@
+MongoDB shell version v4.2.1
+connecting to: mongodb://127.0.0.1:27017/nbd?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("f84a08b0-98e3-4cf2-9a7a-1aef74ed0e80") }
+MongoDB server version: 4.2.1
+{
+	"result" : "bmi",
+	"timeMillis" : 341,
+	"counts" : {
+		"input" : 6110,
+		"emit" : 6110,
+		"reduce" : 507,
+		"output" : 189
+	},
+	"ok" : 1
+}
