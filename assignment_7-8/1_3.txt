@@ -1,0 +1,24 @@
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8098 (#0)
+> PUT /buckets/s19142/keys/2?returnbody=true HTTP/1.1
+> Host: 127.0.0.1:8098
+> User-Agent: curl/7.63.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 141
+>
+* upload completely sent off: 141 out of 141 bytes
+< HTTP/1.1 200 OK
+< X-Riak-Vclock: a85hYGBgzGDKBVI8ypz/fvJGpHYyMKgLZjAlMuWxMvydEHmdLwsA
+< Vary: Accept-Encoding
+< Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+< Link: </buckets/s19142>; rel="up"
+< Last-Modified: Mon, 02 Dec 2019 13:43:25 GMT
+< ETag: "rcTFhM3sfkwflbMuFXun2"
+< Date: Mon, 02 Dec 2019 13:43:25 GMT
+< Content-Type: application/json
+< Content-Length: 141
+<
+* Connection #0 to host 127.0.0.1 left intact
+{ "id": 2, "title": "Document 2", "subtitle": "doc 2", "description": "This is a document 2 in Riak db", "isFake": false, "isModified": true}%

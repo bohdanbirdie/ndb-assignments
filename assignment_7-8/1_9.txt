@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8ypz/fvJGJNcyMKgLZTAlMuaxMlRPirzOlwUA
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s19142>; rel="up"
+Last-Modified: Mon, 02 Dec 2019 13:49:47 GMT
+ETag: "2VOfLhqHsxBoowzXKjKKkV"
+Date: Mon, 02 Dec 2019 13:50:40 GMT
+Content-Type: application/json
+Content-Length: 120
+
+{ "id": 6, "title": "Document 6", "subtitle": "doc 6", "description": "This is a document 6 in Riak db", "isFake": true}%

@@ -1,3 +1,6 @@
 .vscode
 .metals
 test.scala
+riak-2.2.3
+node_modules
+.DS_Store

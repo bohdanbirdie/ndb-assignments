@@ -1,0 +1,6 @@
+﻿people,movie,Type(related),related
+"{name:Stephen McFeely,born:1952}","{title:Capitan America:The First Avenger,tagline:I know this neighborhood. I got beat up in that alley. And that parking lot. And behind that diner.,released:2011}",WROTE,{}
+"{name:Christopher Markus,born:1965}","{title:Capitan America:The First Avenger,tagline:I know this neighborhood. I got beat up in that alley. And that parking lot. And behind that diner.,released:2011}",WROTE,{}
+"{name:Samuel L. Jackson,born:1948}","{title:Capitan America:The First Avenger,tagline:I know this neighborhood. I got beat up in that alley. And that parking lot. And behind that diner.,released:2011}",ACTED_IN,{roles:[Nick Fury]}
+"{name:Chris Evans,born:1981}","{title:Capitan America:The First Avenger,tagline:I know this neighborhood. I got beat up in that alley. And that parking lot. And behind that diner.,released:2011}",ACTED_IN,{roles:[Capitan America / Steve Rogers]}
+"{name:Joe Johnston,born:1950}","{title:Capitan America:The First Avenger,tagline:I know this neighborhood. I got beat up in that alley. And that parking lot. And behind that diner.,released:2011}",DIRECTED,{}

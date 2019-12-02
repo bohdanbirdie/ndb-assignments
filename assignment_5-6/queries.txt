@@ -1,0 +1,81 @@
+1 1. MATCH (n)-[]->(movies) RETURN movies
+
+1 2. MATCH (person:Person {name: "Hugo Weaving"})-[:ACTED_IN]->(movies) RETURN person,movies
+
+1 3. MATCH (person:Person {name: "Hugo Weaving"})-[:ACTED_IN]->(movies)<-[:DIRECTED]-(directors) RETURN directors
+
+1 4. MATCH (person:Person {name:"Hugo Weaving"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors) RETURN coActors
+
+1 5. MATCH (person)-[:ACTED_IN]->(movies: Movie {title: "The Matrix"}) RETURN person
+
+1 6. MATCH (person:Person)-[:ACTED_IN]->(ActorsMovies) RETURN person.name, count(*) as MoviesCount
+
+1 7. MATCH (person:Person)-[:DIRECTED]->(directed)<-[:WROTE]-(wrote) WHERE wrote=person RETURN person, directed
+
+1 8. MATCH (keanuReeves:Person {name:"Keanu Reeves"})-[:ACTED_IN]->(actedIn)<-[:ACTED_IN]-(hugoWeaving:Person {name:"Hugo Weaving"}) RETURN actedIn.title
+
+1 9. 
+CREATE (CapitanAmericaTheFirstAvenger:Movie {title:'Capitan America:The First Avenger', tagline: 'I know this neighborhood. I got beat up in that alley. And that parking lot. And behind that diner.', released:2011})
+CREATE (chrisEvans:Person {name:'Chris Evans', born:1981})
+CREATE (samuelLJackson:Person {name:'Samuel L. Jackson', born:1948})
+CREATE (jJohnston:Person {name:'Joe Johnston', born:1950})
+CREATE (markusChristopher:Person {name:'Christopher Markus', born:1965})
+CREATE (mcFeelyStephen:Person {name:'Stephen McFeely', born:1952})
+CREATE
+  (chrisEvans)-[:ACTED_IN {roles:['Capitan America / Steve Rogers']}]->(CapitanAmericaTheFirstAvenger),
+  (samuelLJackson)-[:ACTED_IN {roles:['Nick Fury']}]->(CapitanAmericaTheFirstAvenger),
+  (hugoWeaving:Person {name: 'Hugo Weaving'})-[:ACTED_IN {roles:['Red Skull']}]->(CapitanAmerica),
+  (jJohnston)-[:DIRECTED]->(CapitanAmericaTheFirstAvenger),
+  (markusChristopher)-[:WROTE]->(CapitanAmericaTheFirstAvenger),
+  (mcFeelyStephen)-[:WROTE]->(CapitanAmericaTheFirstAvenger)
+
+1 10. MATCH (people:Person)-[related]-(movie:Movie {title: "Capitan America:The First Avenger"}) RETURN people,movie, Type(related), related
+
+
+
+
+
+
+2 1 1.
+MATCH shortest = shortestPath ((start:town{name: "Darjeeling"})-[*]-(meta:peak { name:"Sandakphu" })) 
+WHERE ALL(shortest in rels(shortest) WHERE shortest.winter = "true")
+RETURN shortest
+
+2 1 2. MATCH finalPath = ((start:town{name: "Darjeeling"})-[*1..6]-(meta:peak { name:"Sandakphu" }))
+RETURN finalPath, reduce(addDistance=0, path IN relationships(finalPath)|addDistance + path.distance) AS finalDistance ORDER BY finalDistance ASC
+
+2 1 3. MATCH (start:town{name: "Darjeeling"})-[path:twowheeler]->(locations) where path.summer="True" RETURN locations
+
+
+2 2 1.
+MATCH (airportStrt:Airport)<-[:ORIGIN]-(flight:Flight)-[:DESTINATION]->(airportStp:Airport), (flight)<-[:ASSIGN]-(ticket:Ticket)
+WITH airportStrt, airportStp, flight, min(ticket.price) as minimumPriceTicket
+MATCH (flight)<-[:ASSIGN]-(t:Ticket {price: minimumPriceTicket})
+WITH airportStrt, airportStp, flight, t
+CREATE (airportStrt)-[cheapestFlight:CHEAPEST_FLIGHT {price: t.price, class:t.class, date: flight.date, duration: flight.duration, distance: flight.distance, airline:flight.airline}]->(airportStp)
+RETURN cheapestFlight;
+
+MATCH path = ()-[origin:ORIGIN]->(airport:Airport) RETURN airport, COUNT(origin) AS numberOfFlights ORDER BY numberOfFlights ASC
+
+2 2 2.
+MATCH airport=(airportStp:Airport)<-[cheapestFlight:CHEAPEST_FLIGHT*1..6]-(airportStrt:Airport {name: "LAX"}), ()-[origin:ORIGIN]->(airportStrt:Airport ) WITH airport,airportStp, reduce(totalPrice=0, rel IN relationships(airport)|totalPrice + rel.price) as cost WHERE cost < 3000  return distinct airportStp
+
+2 2 3.
+MATCH airport = (airportStp:Airport{name: "DAY"})<-[cheapestFlight:CHEAPEST_FLIGHT*1..10]-(airportStp:Airport {name: "LAX"}), (airportStp:Airport)<-[:DESTINATION]-(), ()-[:ORIGIN]->(airportStp:Airport) return airport,reduce(totalPrice=0, rel IN relationships(airport)|totalPrice + rel.price)  as cost ORDER BY cost DESC
+
+2 2 4.
+MATCH airport = (airportStp:Airport{name: "DAY"})<-[cheapestFlight:CHEAPEST_FLIGHT*1..10]-(airportStrt:Airport {name: "LAX"}), (airportStp:Airport)<-[:DESTINATION]-(), ()-[:ORIGIN]->(airportStrt:Airport ) WITH airport, cheapestFlight, reduce(totalPrice=0, rel IN relationships(airport)|totalPrice + rel.price) as cost RETURN airport, cost ORDER BY cost LIMIT 1
+
+2 2 5.
+MATCH (airportStop:Airport)<-[:ORIGIN]-(flight:Flight)-[:DESTINATION]->(airportStart:Airport), (flight)<-[:ASSIGN]-(ticket:Ticket)
+WITH airportStp, airportStrt, flight, ticket  WHERE ticket.class = "business"
+CREATE (airportStop)-[businessFlight:BUSINESS_FLIGHT {price: ticket.price, class:ticket.class, date: flight.date, duration: flight.duration, distance: flight.distance, airline:flight.airline}]->(airportStrt)
+RETURN businessFlight;
+
+MATCH airport=(airportStp:Airport{name: "DAY"})<-[businessFlight:BUSINESS_FLIGHT*1..10]-(airportStrt:Airport {name: "LAX"}), (airportStp:Airport)<-[:DESTINATION]-(), ()-[:ORIGIN]->(airportStrt:Airport) WITH airport,  reduce(totalDis=0, rel IN relationships(airport)|totalDis + rel.price) as cost RETURN airport, cost ORDER BY cost LIMIT 1
+
+2 2 6.
+MATCH airport=(airportStp:Airport)<-[cheapestFlight:CHEAPEST_FLIGHT]-(airportStrt:Airport) WITH cheapestFlight, airportStp.name + airportStrt.name as special RETURN  cheapestFlight.airline as flight,  count(DISTINCT special) AS number ORDER BY number DESC
+
+2 2 7.
+MATCH airport=(airportStp:Airport)<-[:CHEAPEST_FLIGHT]-(airportStrt:Airport)<-[:CHEAPEST_FLIGHT]-(airportThird:Airport)  WITH airport, reduce(totalPrice=0, rel IN relationships(airport)|totalPrice + rel.price) as cost WHERE airportStp<>airportThird  RETURN airport, cost ORDER BY cost LIMIT 1

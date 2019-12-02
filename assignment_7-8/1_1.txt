@@ -1,0 +1,124 @@
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8098 (#0)
+> PUT /buckets/s19142/keys/1?returnbody=true HTTP/1.1
+> Host: 127.0.0.1:8098
+> User-Agent: curl/7.63.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 121
+>
+* upload completely sent off: 121 out of 121 bytes
+< HTTP/1.1 200 OK
+< X-Riak-Vclock: a85hYGBgzGDKBVI8ypz/fvImCS9hYFAXzGBKZMpjZVDui7zOlwUA
+< Vary: Accept-Encoding
+< Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+< Link: </buckets/s19142>; rel="up"
+< Last-Modified: Mon, 02 Dec 2019 13:31:15 GMT
+< ETag: "55SENknnuVLNv7dVHVs50j"
+< Date: Mon, 02 Dec 2019 13:31:15 GMT
+< Content-Type: application/json
+< Content-Length: 121
+<
+* Connection #0 to host 127.0.0.1 left intact
+{ "id": 1, "title": "Document 1", "subtitle": "doc 1", "description": "This is a document 1 in Riak db", "isFake": false}%
+
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8098 (#0)
+> PUT /buckets/s19142/keys/2?returnbody=true HTTP/1.1
+> Host: 127.0.0.1:8098
+> User-Agent: curl/7.63.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 121
+>
+* upload completely sent off: 121 out of 121 bytes
+< HTTP/1.1 200 OK
+< X-Riak-Vclock: a85hYGBgzGDKBVI8ypz/fvJGpHYyMKgLZjAlMuaxMrzsi7zOlwUA
+< Vary: Accept-Encoding
+< Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+< Link: </buckets/s19142>; rel="up"
+< Last-Modified: Mon, 02 Dec 2019 13:34:33 GMT
+< ETag: "7Y0VqV6ACSO26WxLhSQHp5"
+< Date: Mon, 02 Dec 2019 13:34:33 GMT
+< Content-Type: application/json
+< Content-Length: 121
+<
+* Connection #0 to host 127.0.0.1 left intact
+{ "id": 2, "title": "Document 2", "subtitle": "doc 2", "description": "This is a document 2 in Riak db", "isFake": false}%
+
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8098 (#0)
+> PUT /buckets/s19142/keys/3?returnbody=true HTTP/1.1
+> Host: 127.0.0.1:8098
+> User-Agent: curl/7.63.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 121
+>
+* upload completely sent off: 121 out of 121 bytes
+< HTTP/1.1 200 OK
+< X-Riak-Vclock: a85hYGBgzGDKBVI8ypz/fvJGZEgzMKgLZTAlMuaxMnzvi7zOlwUA
+< Vary: Accept-Encoding
+< Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+< Link: </buckets/s19142>; rel="up"
+< Last-Modified: Mon, 02 Dec 2019 13:34:47 GMT
+< ETag: "1DTZAnTa4RXFTIX9JR9JfX"
+< Date: Mon, 02 Dec 2019 13:34:47 GMT
+< Content-Type: application/json
+< Content-Length: 121
+<
+* Connection #0 to host 127.0.0.1 left intact
+{ "id": 3, "title": "Document 3", "subtitle": "doc 3", "description": "This is a document 3 in Riak db", "isFake": false}%
+
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8098 (#0)
+> PUT /buckets/s19142/keys/4?returnbody=true HTTP/1.1
+> Host: 127.0.0.1:8098
+> User-Agent: curl/7.63.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 121
+>
+* upload completely sent off: 121 out of 121 bytes
+< HTTP/1.1 200 OK
+< X-Riak-Vclock: a85hYGBgzGDKBVI8ypz/fvLm2WQwMKgLZjAlMuaxMrD3R17nywIA
+< Vary: Accept-Encoding
+< Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+< Link: </buckets/s19142>; rel="up"
+< Last-Modified: Mon, 02 Dec 2019 13:35:03 GMT
+< ETag: "43gZyoducrOo5ufAft7aDo"
+< Date: Mon, 02 Dec 2019 13:35:03 GMT
+< Content-Type: application/json
+< Content-Length: 121
+<
+* Connection #0 to host 127.0.0.1 left intact
+{ "id": 4, "title": "Document 4", "subtitle": "doc 4", "description": "This is a document 4 in Riak db", "isFake": false}%
+
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8098 (#0)
+> PUT /buckets/s19142/keys/5?returnbody=true HTTP/1.1
+> Host: 127.0.0.1:8098
+> User-Agent: curl/7.63.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 121
+>
+* upload completely sent off: 121 out of 121 bytes
+< HTTP/1.1 200 OK
+< X-Riak-Vclock: a85hYGBgzGDKBVI8ypz/fvJGpAcwMKgLZjAlMuaxMoj0R17nywIA
+< Vary: Accept-Encoding
+< Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+< Link: </buckets/s19142>; rel="up"
+< Last-Modified: Mon, 02 Dec 2019 13:35:16 GMT
+< ETag: "6ExZE4qFGwZ2AR67MGo2DO"
+< Date: Mon, 02 Dec 2019 13:35:16 GMT
+< Content-Type: application/json
+< Content-Length: 121
+<
+* Connection #0 to host 127.0.0.1 left intact
+{ "id": 5, "title": "Document 5", "subtitle": "doc 5", "description": "This is a document 5 in Riak db", "isFake": false}%

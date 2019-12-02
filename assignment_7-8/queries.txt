@@ -1,0 +1,37 @@
+1 0 Create a bucket
+curl -v http://127.0.0.1:8098/buckets/s19142/props -X PUT -H "Content-Type: application/json" -d '{"props":{}}'
+
+
+1 1
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/1?returnbody=true -X PUT -H "Content-Type: application/json" -d '{ "id": 1, "title": "Document 1", "subtitle": "doc 1", "description": "This is a document 1 in Riak db", "isFake": false}'
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/2?returnbody=true -X PUT -H "Content-Type: application/json" -d '{ "id": 2, "title": "Document 2", "subtitle": "doc 2", "description": "This is a document 2 in Riak db", "isFake": false}'
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/3?returnbody=true -X PUT -H "Content-Type: application/json" -d '{ "id": 3, "title": "Document 3", "subtitle": "doc 3", "description": "This is a document 3 in Riak db", "isFake": false}'
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/4?returnbody=true -X PUT -H "Content-Type: application/json" -d '{ "id": 4, "title": "Document 4", "subtitle": "doc 4", "description": "This is a document 4 in Riak db", "isFake": false}'
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/5?returnbody=true -X PUT -H "Content-Type: application/json" -d '{ "id": 5, "title": "Document 5", "subtitle": "doc 5", "description": "This is a document 5 in Riak db", "isFake": false}'
+
+1 2
+curl -i -X GET http://127.0.0.1:8098/buckets/s19142/keys/1
+
+1 3
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/2?returnbody=true -X PUT -H "Content-Type: application/json" -d '{ "id": 2, "title": "Document 2", "subtitle": "doc 2", "description": "This is a document 2 in Riak db", "isFake": false, "isModified": true}'
+
+1 4
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/4?returnbody=true -X PUT -H "Content-Type: application/json" -d '{ "id": 4, "title": "Document 4", "subtitle": "doc 4", "description": "This is a document 4 in Riak db"}'
+
+1 5
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/5?returnbody=true -X PUT -H "Content-Type: application/json" -d '{ "id": 5, "title": "Document 5", "subtitle": "doc 5", "description": "This is a document 5 in Riak db", "isFake": true}'
+
+1 6
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/1?returnbody=true -X DELETE
+
+1 7
+curl -i -X GET http://127.0.0.1:8098/buckets/s19142/keys/1
+
+1 8
+curl -v http://127.0.0.1:8098/buckets/s19142/keys?returnbody=true -X POST -H "Content-Type: application/json" -d '{ "id": 6, "title": "Document 6", "subtitle": "doc 6", "description": "This is a document 6 in Riak db", "isFake": true}'
+
+1 9
+curl -i -X GET http://127.0.0.1:8098/buckets/s19142/keys/5iMMLZULubd77en4mciwBgUVdV8
+
+1 10
+curl -v http://127.0.0.1:8098/buckets/s19142/keys/5iMMLZULubd77en4mciwBgUVdV8?returnbody=true -X DELETE
